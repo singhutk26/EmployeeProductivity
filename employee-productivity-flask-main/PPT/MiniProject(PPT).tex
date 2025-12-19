@@ -1,0 +1,183 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{ragged2e}
+
+% ---- REMOVE BLUE BORDER / BLUE THEME ----
+\setbeamertemplate{footline}{}
+\setbeamertemplate{headline}{}
+\setbeamertemplate{navigation symbols}{}
+
+% Remove blue color from theme elements
+\setbeamercolor{palette primary}{bg=white, fg=black}
+\setbeamercolor{palette secondary}{bg=white, fg=black}
+\setbeamercolor{palette tertiary}{bg=white, fg=black}
+\setbeamercolor{palette quaternary}{bg=white, fg=black}
+\setbeamercolor{frametitle}{bg=white, fg=black}
+\setbeamercolor{structure}{fg=black}
+
+% ---- MAKE ALL HEADINGS BOLD ----
+\setbeamerfont{frametitle}{series=\bfseries,size=\large}
+\setbeamerfont{title}{series=\bfseries}
+\setbeamerfont{subtitle}{series=\bfseries}
+
+% ---- SMALLER GAP UNDER HEADINGS ----
+\addtobeamertemplate{frametitle}{}{\vspace{0.1cm}}
+
+% ---- ADD CENTER LOGO ON TITLE PAGE ----
+\titlegraphic{
+    \vspace{0.5cm}
+    \centering
+    \includegraphics[width=3cm]{logo.png}
+}
+
+% -----------------------------------------------------
+\title[Employee Productivity Predictor]{\textbf{Employee Productivity Predictor Using Machine Learning}}
+\author{\textbf{Utkarsh Singh} \\ Roll No: 2202840100240}
+\institute{\textbf{United Institute of Technology}}
+\date{\textbf{11-12-2025}}
+
+% -----------------------------------------------------
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% -----------------------------------------------------
+\begin{frame}{\textbf{Topics Covered}}
+\justify
+\begin{itemize}
+    \item Introduction
+    \item Objectives
+    \item Methodology \& Process Flow
+    \item Flowchart Visualization
+    \item System Design \& Snapshots
+    \item Limitations of the Study
+    \item Future Scope \& Enhancements
+    \item References
+\end{itemize}
+\end{frame}
+
+% -----------------------------------------------------
+\begin{frame}{\textbf{Introduction}}
+\justify
+\textbf{Objective:}  
+To develop a machine learning model for predicting employee attrition and performance using HR-related data.
+
+\medskip
+\textbf{Focus:}  
+Analyzing significant patterns, feature importance, and predictive insights from employee behavioral and performance datasets.
+
+\medskip
+\textbf{Outcome:}  
+Enables data-driven retention strategies, improved workforce planning, reduced attrition, and enhanced organizational productivity.
+\end{frame}
+
+% -----------------------------------------------------
+\begin{frame}{\textbf{Methodology}}
+\justify
+\begin{enumerate}
+    \item \textbf{Data Collection:} Demographics, job role, experience data.
+    \item \textbf{Preprocessing:} Handling missing values, removing outliers, scaling.
+    \item \textbf{Feature Selection:} Identifying key attributes using feature importance.
+    \item \textbf{Model Development:} Random Forest, XGBoost.
+    \item \textbf{Evaluation:} Accuracy, Precision, Recall, F1-Score.
+    \item \textbf{Deployment:} Predictive dashboard for HR insights.
+\end{enumerate}
+\end{frame}
+
+% -----------------------------------------------------
+\begin{frame}{\textbf{Process Flowchart}}
+\justify
+A comprehensive visual representation of the system workflow:
+
+\begin{itemize}
+    \item Data Ingestion: Raw employee data entry
+    \item Processing: Cleaning and normalization
+    \item Model Logic: Decision trees and ML classification
+    \item Output: Performance and attrition predictions
+\end{itemize}
+
+\vspace{0.5cm}
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{processfcmini.jpg}
+\end{center}
+
+\end{frame}
+
+% -----------------------------------------------------
+\begin{frame}{\textbf{System Snapshots}}
+\justify
+The system features an interactive HR dashboard visualizing:
+
+\begin{itemize}
+    \item Attrition Risk Heatmaps
+    \item Performance Trend Graphs
+    \item Individual Employee Profiles
+\end{itemize}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tabular}{ccc}
+\includegraphics[width=0.28\textwidth]{snapshot1.png} &
+\includegraphics[width=0.28\textwidth]{snapshot2.png} &
+\includegraphics[width=0.28\textwidth]{snapshot3.png}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+% -----------------------------------------------------
+\begin{frame}{\textbf{Limitations}}
+\justify
+\textbf{Data \& Features}
+\begin{itemize}
+    \item Limited/imbalanced datasets reduce accuracy.
+    \item Missing behavioral or psychological factors restrict depth.
+\end{itemize}
+
+\textbf{System \& Usability}
+\begin{itemize}
+    \item Black-box ML models reduce interpretability.
+    \item Privacy concerns due to sensitive employee data.
+    \item Requires continuous retraining as policies evolve.
+\end{itemize}
+\end{frame}
+
+% -----------------------------------------------------
+\begin{frame}{\textbf{Future Scope}}
+\justify
+\begin{itemize}
+    \item \textbf{HR Integration:} Real-time monitoring systems.
+    \item \textbf{Deep Learning:} Improved pattern recognition.
+    \item \textbf{Explainable AI:} Transparent prediction reasoning.
+    \item \textbf{Web/Mobile Apps:} Remote accessibility.
+\end{itemize}
+\end{frame}
+
+% -----------------------------------------------------
+\begin{frame}{\textbf{References}}
+\small
+\justify
+\begin{itemize}
+    \item Kumar, S. \& Mehta, A. (2020). Employee Attrition Prediction using ML.
+    \item Mishra, P. \& Gupta, R. (2021). Predicting Employee Performance.
+    \item Huang, J. \& Ling, C. (2019). Evaluating ML Algorithms using AUC.
+    \item Scikit-Learn Documentation.
+    \item Chawla, N. et al. (2002). SMOTE – Synthetic Oversampling Technique.
+    \item Kaggle Public Datasets.
+\end{itemize}
+\end{frame}
+
+% -----------------------------------------------------
+\begin{frame}
+\centering
+\Huge \textbf{Thank You!}
+\end{frame}
+
+% -----------------------------------------------------
+\end{document}
