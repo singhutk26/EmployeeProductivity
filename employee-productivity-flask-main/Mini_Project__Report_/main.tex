@@ -1,0 +1,544 @@
+\documentclass[12pt,oneside]{report}
+\usepackage[a4paper,top=25mm,left=25mm,right=25mm,bottom=25mm]{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{titlesec}
+
+\onehalfspacing
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+
+% ---------- TOP TEXT ----------
+A\\[4pt]
+\textbf{Mini Project Report}\\[6pt]
+On\\[12pt]
+
+{\LARGE \textbf{Employee Productivity Predictor Using Machine Learning}}\\[20pt]
+
+Submitted in partial fulfilment for the requirement for the award of the degree\\[8pt]
+Of\\[10pt]
+
+\textbf{Bachelor of Technology}\\[6pt]
+In\\[6pt]
+\textbf{Computer Science and Engineering}\\[22pt]
+
+Submitted by\\[6pt]
+\textbf{Utkarsh Singh}\\
+(2202840100240)\\[25pt]
+
+% ---------- LOGO ----------
+\begin{center}
+    \includegraphics[width=0.40\textwidth]{logo.png}
+\end{center}
+
+% ---------- INSTITUTE DETAILS ----------
+Department of Computer Science \& Engineering\\[2pt]
+\textbf{UNITED INSTITUTE OF TECHNOLOGY (284)}\\[2pt]
+(Affiliated to Dr. A.P.J. Abdul Kalam Technical University, Lucknow)\\[12pt]
+
+\textbf{Session-2025-2026}
+
+\end{titlepage}
+
+% =========================================
+% VISION & MISSION PAGE
+% =========================================
+
+\chapter*{}
+\begin{center}
+\vspace{-4cm}
+    {\LARGE \textbf{Vision of the Department}}
+\end{center}
+
+\justifying
+To be a center of excellence in the field of Computer Science and Engineering
+for producing talented engineers to ethically serve constantly changing needs of
+society and industry throughout their career and life.
+
+\vspace{2.5cm}
+
+\begin{center}
+    {\LARGE \textbf{Mission of the Department}}
+\end{center}
+
+\vspace{0.5cm}
+
+\justifying
+
+\noindent \textbf{M1.} Accomplish excellence with committed faculty by providing theoretical 
+foundation and practical skills for solving complex engineering problems in the 
+state-of-the-art trends in Computer science and allied disciplines.\\[10pt]
+
+\noindent \textbf{M2.} To foster skills and competency, generating novel ideas, entrepreneurship 
+and model creations focused towards deep knowledge, interpersonal skills and 
+leadership.\\[10pt]
+
+\noindent \textbf{M3.} To develop habitude of research among faculty and students in the area of 
+Computer Science \& Allied disciplines by providing the desired environment 
+for addressing the needs of industry and society.\\[10pt]
+
+\noindent \textbf{M4.} To mould the students with ethical principles in thoughts, expression and deeds.
+
+\newpage
+\chapter*{\centering \vspace{-3cm}{\textbf{Index}}}
+
+\noindent
+\large{\textbf{S.No} \hspace{3cm} \textbf{Topic} \hspace{9.5cm} \textbf{Page No.}} \\[10pt]
+
+\textbf{1} \hspace{2.2cm} Introduction \dotfill\hspace{0.5cm} 3 \\[8pt]
+
+\textbf{2} \hspace{2.2cm} Requirement \dotfill\hspace{0.5cm} 4 \\[8pt]
+
+\textbf{3} \hspace{2.2cm} Conceptual Background \dotfill\hspace{0.5cm} 5--7 \\[8pt]
+
+\textbf{4} \hspace{2.2cm} Implementation \dotfill\hspace{0.5cm} 8--12 \\[8pt]
+
+% ----- SUBHEADINGS INDENTED -----
+\hspace{1.4cm} \textbf{4.1} \hspace{1cm} Coding \dotfill \\[8pt]
+
+\hspace{1.4cm} \textbf{4.2} \hspace{1cm} Flow Chart \dotfill \\[8pt]
+
+% ---------------------------------
+
+\textbf{5} \hspace{2.2cm} User Interface \dotfill\hspace{0.5cm} 13--14 \\[8pt]
+
+\textbf{6} \hspace{2.2cm} Future Scope \dotfill\hspace{0.5cm} 15--16 \\[10pt]
+
+\hspace{2.2cm} References \dotfill\hspace{0.5cm} 17 \\[8pt]
+
+\hspace{2.2cm} Appendix \dotfill\hspace{0.5cm} 18 \\[8pt]
+
+\newpage
+
+
+
+% =========================================
+% CHAPTER 1 : INTRODUCTION
+% =========================================
+\chapter*{\centering \vspace{-4cm} \textbf{Chapter - 1}\\[4pt] \textbf{Introduction}}
+\addcontentsline{toc}{chapter}{Introduction}
+
+\justifying
+
+Employee productivity plays a crucial role in the growth, planning, and operational success 
+of any organization. Traditionally, organizations rely on manual evaluation, supervisor 
+feedback and historical performance records to estimate employee productivity. However, 
+such approaches are time-consuming, less accurate, and often biased due to human judgement.
+
+With the advancement of data-driven technologies, organizations are now adopting predictive 
+analytics and machine learning models to measure employee performance more precisely. 
+Machine learning enables organizations to analyse historical employee data, identify patterns 
+affecting productivity and generate predictive insights which can assist in decision making.
+
+This project focuses on developing a machine learning-based system that automatically 
+predicts employee productivity using historical workplace data such as working hours, 
+department, attendance, and other relevant numerical parameters. The system allows 
+comparison of multiple machine learning models and helps organizations select the most 
+suitable algorithm for productivity prediction based on evaluation metrics.
+
+\textbf{Problem Statement :} Manual productivity evaluation is slow, subjective and lacks predictive 
+capability. There is a requirement for a machine learning-based solution that can 
+automatically analyse employee data and predict productivity accurately.
+
+\clearpage
+
+% =========================================
+% CHAPTER 2 : REQUIREMENTS
+% =========================================
+
+\chapter*{\centering \vspace{-4cm} \textbf{Chapter - 2}\\[4pt] \textbf{Requirements}}
+\addcontentsline{toc}{chapter}{Requirements}
+
+\vspace{0.8cm}
+
+% ---------- SOFTWARE ----------
+\noindent \textbf{Software :}
+
+\vspace{0.4cm}
+
+\noindent 1. Programming Language Python 3.x\\[4pt]
+\noindent 2. Backend Framework Flask (used for serving ML model and handling routes)\\[4pt]
+\noindent 3. Machine Learning Libraries — scikit-learn, XGBoost, Pandas, NumPy\\[4pt]
+\noindent 4. Data Visualization — Matplotlib, Seaborn\\[4pt]
+\noindent 5. Frontend — HTML, CSS, Bootstrap\\[4pt]
+\noindent 6. Deployment — Localhost (Flask server)\\[4pt]
+\noindent 7. Miscellaneous — joblib (model saving/loading), CSV handling\\
+
+\vspace{1cm}
+
+% ---------- HARDWARE ----------
+\noindent \textbf{Hardware :}
+
+\vspace{0.4cm}
+
+\noindent \textbf{1. Standard PC/Laptop:} With sufficient processing power and memory to support the development environment.\\[6pt]
+
+\noindent \textbf{2. Local Database Server:} Can be installed on the development machine for testing and development purposes.\\[6pt]
+
+\noindent \textbf{3. Display:} A standard display for UI design and testing.
+
+
+\newpage
+
+
+
+% =========================================
+% CHAPTER 3 : CONCEPTUAL BACKGROUND
+% =========================================
+
+\chapter*{\centering \vspace{-4cm} \textbf{Chapter - 3}\\[4pt] \textbf{Conceptual Background}}
+\addcontentsline{toc}{chapter}{Conceptual Background}
+
+\justifying
+\vspace{-0.25cm}
+
+The concept of employee productivity prediction is rooted in the increasing need for 
+organizations to measure and analyze employee performance in a more scientific and 
+data-driven manner. With the growth of industries and digital technologies, manual 
+evaluation of employees has become inefficient for large-scale workforce environments. 
+Machine learning and data analytics provide organizations with accurate techniques to 
+process employee-related information and predict productivity based on past patterns and 
+performance indicators.
+
+\vspace{0.15cm}
+
+\noindent \textbf{Understanding Employee Productivity :} Employee productivity refers to the effectiveness 
+and efficiency with which employees complete assigned tasks. Productivity depends on 
+several factors such as working environment, job role, skill level, working hours, and 
+inter-departmental workload. Traditionally, productivity assessment was based on supervisor 
+feedback and manual judgment, which often lacked accuracy.
+
+\vspace{0.15cm}
+
+\noindent \textbf{Need for Analytics Based Evaluation :} Organizations today collect large volumes of 
+employee-related data in digital form. Instead of relying on subjective evaluation, this data 
+can be analyzed using machine learning algorithms which automatically learn productivity 
+trends and predict future performance. Some important benefits include : faster 
+decision-making, removal of human bias, identification of performance-related issues, 
+automated productivity estimation. Thus, data analytics supports intelligent workforce 
+planning and improves organizational efficiency.
+
+\vspace{0.15cm}
+
+\noindent \textbf{Machine Learning for Prediction :} Machine learning (ML) is a field of Artificial 
+Intelligence where computers learn patterns from existing information and apply the learned 
+knowledge to predict future outcomes. ML does not require explicit programming; instead, it 
+uses historical data to discover hidden relationships between different variables.
+
+\vspace{0.15cm}
+
+\noindent \textbf{In employee productivity systems:}
+
+\begin{itemize}
+    \item  ML models learn relationships between features (input) and productivity values (output).
+    \item Models continue to improve whenever more training data becomes available.
+\end{itemize}
+
+\noindent \textbf{Supervised Learning :} The prediction of employee productivity mainly uses supervised 
+learning techniques, because the historical dataset already contains the actual productivity 
+values. Regression models are trained using employee features and the model learns to 
+estimate future values. Main supervised models applied: Linear Regression, Random Forest, 
+XGBoost Regression. These models are suitable for continuous numerical prediction.
+
+\vspace{0.15cm}
+
+\noindent \textbf{Regression and Ensemble Models :} Regression models are commonly used to capture 
+relationships between input features and productivity output values. Ensemble models like 
+Random Forest and XGBoost combine multiple learners to increase prediction accuracy. 
+Ensemble techniques reduce model errors, handle complex relationships and provide better 
+results than single linear models. Therefore, Regression models give baseline prediction, 
+Ensemble models improve performance through boosting or bagging mechanisms.
+
+\vspace{0.15cm}
+
+\noindent \textbf{Performance Evaluation :} Once a model is trained, model performance is tested by 
+comparing predicted output with actual results. Metrics such as MAE (Mean Absolute Error), 
+RMSE (Root Mean Square Error) and R\textsuperscript{2} score provide a quantitative measure of how efficient a 
+model is. Models having lower error and higher accuracy are selected for deployment.
+
+\vspace{0.15cm}
+
+\noindent \textbf{Web-Based Deployment :} Modern employee analytics systems make use of web 
+technologies and interactive dashboards to simplify result visualization. Tools like Flask 
+framework are used to deploy machine learning models as web applications. This allows 
+employees or administrators to interact with the prediction system easily. Through the web 
+interface, users can upload data, view results and generate predictions without programming 
+knowledge. 
+
+
+\newpage
+\chapter*{
+    \centering \vspace{-4cm}
+    Chapter - 4\\[0.3cm]
+    \textbf{Implementation}
+}
+\addcontentsline{toc}{chapter}{Chapter 4 – Implementation}
+
+% ------------------ 4.1 CODING ------------------
+\section*{4.1 Coding}
+\addcontentsline{toc}{section}{4.1 Coding}
+
+\begin{verbatim}
+from flask import Flask, render_template, request, jsonify
+import os
+import pickle
+from model_utils import train_models
+import pandas as pd
+import base64
+from io import BytesIO
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+app = Flask(__name__, template_folder='templates')
+
+# Allow parent folder imports if run from Flask folder
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/app')
+def app_page():
+    return render_template('app.html')
+
+@app.route('/upload', methods=['POST'])
+def upload():
+    file = request.files['file']
+    os.makedirs('uploads', exist_ok=True)
+    filepath = os.path.join('uploads', file.filename)
+    file.save(filepath)
+
+    # Train models
+    results, features = train_models(filepath)
+    df_metrics = pd.DataFrame(results).T
+
+    # --- Bar Chart ---
+    fig, ax = plt.subplots(figsize=(8, 5))
+    df_metrics.plot(kind='bar', ax=ax)
+    plt.title('Model Comparison (MAE, RMSE, R²)')
+    plt.xticks(rotation=20)
+    plt.tight_layout()
+
+    buf = BytesIO()
+    plt.savefig(buf, format='png')
+    buf.seek(0)
+    bar_chart_base64 = base64.b64encode(buf.read()).decode('utf-8')
+    plt.close(fig)
+
+    # --- Heatmap ---
+    fig, ax = plt.subplots(figsize=(5, 4))
+    corr = df_metrics.corr()
+    sns.heatmap(corr, annot=True, cmap='coolwarm', ax=ax)
+    plt.title('Metrics Correlation Heatmap')
+    plt.tight_layout()
+
+    buf = BytesIO()
+    plt.savefig(buf, format='png')
+    buf.seek(0)
+    heatmap_base64 = base64.b64encode(buf.read()).decode('utf-8')
+    plt.close(fig)
+
+    return jsonify({
+        "results": results,
+        "features": features,
+        "bar_chart": bar_chart_base64,
+        "heatmap": heatmap_base64
+    })
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    data = request.json
+    model_name = data['model']
+    features = data['features']
+
+    model_path = os.path.join("IBM Files",
+                              f"{model_name.replace(' ', '_')}.pkl")
+    scaler_path = os.path.join("IBM Files", "scaler.pkl")
+
+    with open(model_path, "rb") as f:
+        model = pickle.load(f)
+
+    with open(scaler_path, "rb") as f:
+        scaler = pickle.load(f)
+
+    df = pd.DataFrame([features])
+    scaled = scaler.transform(df)
+    pred = model.predict(scaled)[0]
+
+    return jsonify({"prediction": float(pred)})
+
+if __name__ == '__main__':
+    app.run(debug=False)
+\end{verbatim}
+
+
+% ------------------ FLOWCHART SECTION ------------------
+\section*{4.2 Flowchart}
+\addcontentsline{toc}{section}{4.2 Flowchart}
+
+\justifying
+The flowchart shown below represents the working process of the 
+\textbf{Employee Productivity Predictor System}. It illustrates the sequential steps involved 
+in uploading a dataset, training machine learning models, generating evaluation metrics, 
+visualizing results, and predicting employee productivity. This helps in understanding 
+the overall logical workflow of the system.
+
+\vspace{0.8cm}
+
+\begin{center}
+    \includegraphics[width=0.28\textwidth]{Flow.png} % Flowchart image
+\end{center}
+
+\clearpage
+
+
+
+% =========================================
+% CHAPTER 5 : INTERFACE
+% =========================================
+
+\chapter*{\centering \vspace{-4cm} \textbf{Chapter - 5}\\[4pt] \textbf{Interface}}
+\addcontentsline{toc}{chapter}{Interface}
+
+\vspace{0.5cm}
+
+% ---------------- FIGURE 5.1 ----------------
+\begin{center}
+\includegraphics[width=1\textwidth]{1.png}
+\vspace{0.3cm}
+
+{\textbf{Fig : 5.1 User Interface}}
+\end{center}
+
+\vspace{1.2cm}
+
+% ---------------- FIGURE 5.2 ----------------
+\begin{center}
+\includegraphics[width=1\textwidth]{2.png}
+\vspace{0.3cm}
+
+{\textbf{Fig : 5.2 CSV File Uploader}}
+\end{center}
+
+\vspace{1.2cm}
+
+% ---------------- FIGURE 5.3 ----------------
+\begin{center}
+\includegraphics[width=0.9\textwidth]{3.png}
+\vspace{0.3cm}
+
+{\textbf{Fig : 5.3 Training Result and Visual Comparison}}
+\end{center}
+
+\vspace{1.2cm}
+
+% ---------------- FIGURE 5.4 ----------------
+\begin{center}
+\includegraphics[width=0.90\textwidth]{4.png}
+\vspace{0.3cm}
+
+{\textbf{Fig : 5.4 Prediction Result}}
+\end{center}
+
+\clearpage
+
+% =========================================
+% CHAPTER 6 : FUTURE SCOPE
+% =========================================
+
+\chapter*{\centering \vspace{-4cm} \textbf{Chapter - 6}\\[4pt] \textbf{Future Scope}}
+\addcontentsline{toc}{chapter}{Future Scope}
+
+\justifying
+
+The prediction of employee productivity using machine learning still has a wide scope for 
+improvement and research. With the increase in availability of employee-related data and 
+growth of artificial intelligence techniques, the system can be further enhanced to perform 
+more accurate and real-time productivity estimation. In future, advanced machine learning 
+models can be integrated to handle larger datasets, dynamic behavior and changing workforce 
+conditions.
+
+The system can also be extended to monitor employee performance continuously instead of 
+depending only on past datasets. Deep learning algorithms and neural networks may be 
+incorporated to understand complex behavioral patterns and non-linear relations which 
+traditional regression models may not capture effectively. Artificial intelligence techniques 
+such as reinforcement learning and hybrid modeling can also be explored to optimize 
+employee allocation and scheduling automatically.
+
+Another major area of future scope is the integration of real-time data collection from 
+attendance systems, biometric devices, project management tools and HR databases. This 
+would enable organizations to measure live productivity values and take immediate 
+corrective actions whenever performance goes down. Additionally, explainable AI techniques 
+may be applied to provide clear reasoning behind the predictions, so that HR managers can 
+understand which factors contribute most to employee productivity.
+
+Moreover, the developed system can be converted into a full-fledged software platform with 
+role-based login, customized dashboards, mobile accessibility and cloud deployment. The 
+platform may also support industry-specific predictive modules and generate automatic 
+suggestions for performance improvement, staff planning and workforce development 
+policies.
+
+Thus, future developments can make the system more intelligent, transparent, efficient and 
+suitable for real industry implementation.
+
+\clearpage
+
+
+% =========================================
+% REFERENCES
+% =========================================
+
+\chapter*{\centering \vspace{-4cm} \textbf{References}}
+\addcontentsline{toc}{chapter}{References}
+
+\justifying
+
+\begin{enumerate}
+
+\item Mishra, P. \& Gupta, R. (2021). Predicting Employee Performance using Machine 
+Learning Techniques. \textit{International Journal of Scientific Research in Computer 
+Science}, Vol. 9.
+
+\item Bishop, C. M. (2006). \textit{Pattern Recognition and Machine Learning}. Springer, e-Book 
+Edition.
+
+\item “Machine Learning.” Wikipedia, The Free Encyclopedia. Available at:  
+https://en.wikipedia.org/wiki/Machine\_learning
+
+\item Kaggle. Employee Performance and Productivity Dataset (Open Resource). Available 
+at: https://www.kaggle.com
+
+\item IBM Developer Documentation. Machine Learning Deployment using Flask 
+Framework. Available at: https://developer.ibm.com
+
+\item Scikit-Learn Official Documentation. Available at: https://scikit-learn.org
+
+\item TowardsDataScience. Analytics Techniques for Workforce Productivity. Available 
+online at: https://towardsdatascience.com
+
+\end{enumerate}
+
+\clearpage
+
+% =========================================
+% APPENDIX
+% =========================================
+\chapter*{\centering \vspace{-4cm} \textbf{Appendix}}
+\addcontentsline{toc}{chapter}{Appendix}
+
+\begin{figure}[H]
+\centering
+\vspace{4cm}
+\includegraphics[width=1\textwidth]{certificateUT.png}
+\end{figure}
+
+\end{document}
+
